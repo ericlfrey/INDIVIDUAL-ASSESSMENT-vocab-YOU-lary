@@ -8,7 +8,9 @@ const startApp = (user) => {
   domBuilder(user);
   navBar(user);
   logoutButton();
-  getVocabData().then(cardsOnDOM);
+  getVocabData(user.uid).then((arr) => {
+    cardsOnDOM(arr, user.uid);
+  });
 };
 
 export default startApp;
