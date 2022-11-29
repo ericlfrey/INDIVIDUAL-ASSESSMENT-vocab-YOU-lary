@@ -2,8 +2,8 @@ import client from '../utils/client';
 
 const endpoint = client.databaseURL;
 
-const getVocabData = (uid) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/vocabEntries.json?orderBy="uid"&equalTo="${uid}"`, {
+const getVocabData = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabEntries.json`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -20,4 +20,17 @@ const getVocabData = (uid) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-export default getVocabData;
+const addVocabCard = (payload) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabEntries.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+export { getVocabData, addVocabCard };
