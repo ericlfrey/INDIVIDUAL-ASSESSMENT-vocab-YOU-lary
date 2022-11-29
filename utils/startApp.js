@@ -3,6 +3,8 @@ import logoutButton from '../components/buttons/logoutButton';
 import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/shared/navBar';
 import { getVocabData } from '../api/vocabData';
+import navEvents from '../events/navEvents';
+import formEvents from '../events/formEvents';
 
 const startApp = (user) => {
   domBuilder(user);
@@ -11,6 +13,8 @@ const startApp = (user) => {
   getVocabData(user.uid).then((arr) => {
     cardsOnDOM(arr, user.uid);
   });
+  navEvents(user);
+  formEvents(user);
 };
 
 export default startApp;
