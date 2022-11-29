@@ -1,24 +1,37 @@
+import clearDOM from '../utils/clearDom';
 import renderToDOM from '../utils/renderToDom';
 
-const cardsOnDOM = (arr) => {
-  let domString = `
+const cardsOnDOM = (arr, uid) => {
+  clearDOM();
+  const domString = `
     <h1>Card Title</h1>
     <div id="vocabCards"></div>
   `;
+  renderToDOM('#main', domString);
+  let cardString = '';
   arr.forEach((item) => {
-    domString += `
+    cardString += `
   <div class="card" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${item.title}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <p class="card-text">${item.definition}</p>
+    <div class="book-icons">
+      <i class="btn btn-success"   id="view-book-btn--${item.firebaseKey}">
+        <span><i class= "fas fa-eye"></i></span>
+      </i>
+      ${item.uid === uid ? `
+      <i id="edit-book-btn--${item.firebaseKey}"  class="btn btn-info">
+        <span><i class= "fas fa-edit"></i></span>
+      </i>
+      <i id="delete-book-btn--${item.firebaseKey}"  class="btn btn-danger">
+        <span><i class= "fas fa-trash-alt"></i></span>
+      </i>` : ''}
+    </div>
   </div>
 </div>
   `;
+    renderToDOM('#vocabCards', cardString);
   });
-  renderToDOM('#main', domString);
 };
 
 export default cardsOnDOM;
