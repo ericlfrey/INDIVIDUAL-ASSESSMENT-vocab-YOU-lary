@@ -33,6 +33,6 @@ const addCardForm = (uid, obj = {}) => {
     </form>
   `;
   renderToDOM('#form-container', domString);
-  selectLanguage();
+  selectLanguage(obj);
 };
 export default addCardForm;

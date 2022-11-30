@@ -16,7 +16,7 @@ const navEvents = (user) => {
         cardsOnDOM(arr, user.uid);
       });
     }
-    if (e.target.id.includes('select')) {
+    if (e.target.id.includes('filter')) {
       const [, language] = e.target.id.split('--');
       getVocabData().then((arr) => {
         const filteredArr = arr.filter((item) => item.category === language);
