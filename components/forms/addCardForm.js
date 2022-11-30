@@ -1,5 +1,6 @@
 import clearDOM from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
+import selectLanguage from './selectLanguage';
 
 const addCardForm = (uid, obj = {}) => {
   clearDOM();
@@ -10,13 +11,10 @@ const addCardForm = (uid, obj = {}) => {
         <label for="title">Entry Title</label>
         <input type="text" class="form-control" id="title" aria-describedby="bookTitle" placeholder="Enter Title" value="${obj.title || ''}" required>
       </div>
-      <div class="form-group">
-        <label for="category">Language/Tech</label>
-        <input type="text" class="form-control" id="category" aria-describedby="bookTitle" placeholder="Language/Tech" value="${obj.category || ''}" required>
-      </div>
+      <div class="form-group" id="select-category"></div>
       <div class="form-group">
         <label for="definition">Definition</label>
-        <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.description || ''}</textarea>
+        <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="favorite" ${obj.favorite ? 'checked' : ''}>
@@ -35,5 +33,6 @@ const addCardForm = (uid, obj = {}) => {
     </form>
   `;
   renderToDOM('#form-container', domString);
+  selectLanguage();
 };
 export default addCardForm;
