@@ -12,7 +12,6 @@ const domEvents = (user) => {
     // EDIT/UPDATE CARD
     if (e.target.id.includes('edit-card-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
-      console.warn(firebaseKey);
       getSingleCard(firebaseKey).then((obj) => {
         addCardForm(user.uid, obj);
       });
