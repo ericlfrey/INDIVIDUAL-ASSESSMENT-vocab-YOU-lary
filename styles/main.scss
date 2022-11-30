@@ -12,9 +12,14 @@ body {
 //   width: 100vw;
 // }
 
-.navbar-collapse {
+#navbarNav {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.dropdown-menu {
+  margin: 0;
 }
 
  #showAddCardForm{

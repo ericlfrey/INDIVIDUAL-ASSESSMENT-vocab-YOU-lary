@@ -21,7 +21,9 @@ const domEvents = (user) => {
     if (e.target.id.includes('delete-card-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       deleteVocabCard(firebaseKey).then(() => {
-        getVocabData(user.uid).then(cardsOnDOM);
+        getVocabData(user.uid).then((arr) => {
+          cardsOnDOM(arr, user.uid);
+        });
       });
     }
   });
