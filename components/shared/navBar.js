@@ -11,7 +11,7 @@ const navBar = () => {
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="btn btn-success nav-link active" aria-current="page" id="showAddCardForm">Add Entry</a>
+          <a class="btn btn-success nav-link active add-card" aria-current="page" id="showAddCardForm">Add Entry</a>
         </li>
       </ul>
       <span class="navbar-text">

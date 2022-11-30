@@ -5,6 +5,7 @@ import navBar from '../components/shared/navBar';
 import { getVocabData } from '../api/vocabData';
 import navEvents from '../events/navEvents';
 import formEvents from '../events/formEvents';
+import domEvents from '../events/domEvents';
 
 const startApp = (user) => {
   domBuilder(user);
@@ -15,6 +16,7 @@ const startApp = (user) => {
   });
   navEvents(user);
   formEvents(user);
+  domEvents(user);
 };
 
 export default startApp;

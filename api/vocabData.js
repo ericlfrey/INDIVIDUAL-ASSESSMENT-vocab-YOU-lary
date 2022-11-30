@@ -48,6 +48,7 @@ const addVocabCard = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// UPDATE/EDIT ENTRY
 const updateVocabCard = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabEntries/${payload.firebaseKey}.json`, {
     method: 'PATCH',
@@ -61,6 +62,19 @@ const updateVocabCard = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// DELETE ENTRY
+const deleteVocabCard = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabEntries/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  getVocabData, addVocabCard, getSingleCard, updateVocabCard
+  getVocabData, addVocabCard, getSingleCard, updateVocabCard, deleteVocabCard
 };

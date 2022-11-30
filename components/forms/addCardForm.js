@@ -16,7 +16,7 @@ const addCardForm = (uid, obj = {}) => {
       </div>
       <div class="form-group">
         <label for="definition">Definition</label>
-        <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.description || ''}</textarea>
+        <textarea class="form-control" placeholder="Definition" id="definition" style="height: 100px">${obj.definition || ''}</textarea>
       </div>
       <div class="form-check">
         <input class="form-check-input" type="checkbox" value="" id="favorite" ${obj.favorite ? 'checked' : ''}>

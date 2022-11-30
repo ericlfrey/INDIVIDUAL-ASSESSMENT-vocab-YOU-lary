@@ -10,6 +10,7 @@ const formEvents = (user) => {
       const payload = {
         title: document.querySelector('#title').value,
         definition: document.querySelector('#definition').value,
+        category: document.querySelector('#category').value,
         favorite: document.querySelector('#favorite').checked,
         public: document.querySelector('#public').checked,
         uid: user.uid,
@@ -18,7 +19,27 @@ const formEvents = (user) => {
       addVocabCard(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateVocabCard(patchPayload).then(() => {
-          getVocabData().then(cardsOnDOM);
+          getVocabData(user.uid).then((arr) => {
+            cardsOnDOM(arr, user.uid);
+          });
+        });
+      });
+    }
+    if (e.target.id.includes('update-card')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      const payload = {
+        title: document.querySelector('#title').value,
+        definition: document.querySelector('#definition').value,
+        category: document.querySelector('#category').value,
+        favorite: document.querySelector('#favorite').checked,
+        public: document.querySelector('#public').checked,
+        uid: user.uid,
+        timeSubmitted: user.timeSubmitted,
+        firebaseKey
+      };
+      updateVocabCard(payload).then(() => {
+        getVocabData(user.uid).then((arr) => {
+          cardsOnDOM(arr, user.uid);
         });
       });
     }

@@ -12,18 +12,21 @@ const cardsOnDOM = (arr, uid) => {
   arr.forEach((item) => {
     cardString += `
   <div class="card" style="width: 18rem;">
-  <div class="card-body">
+    <div class="card-body">
+      <div class="fav-star" style="height: 26px;">
+        ${item.favorite ? '<span class="badge bg-danger"><i class="fa fa-heart" aria-hidden="true"></i></span>' : '<span></span>'}
+      </div>
     <h5 class="card-title">${item.title}</h5>
-    <p class="card-text">${item.definition}</p>
+    <p class="card-text definition">${item.definition}</p>
     <div class="book-icons">
-      <i class="btn btn-success"   id="view-book-btn--${item.firebaseKey}">
+      <i class="btn btn-success"   id="view-card-btn--${item.firebaseKey}">
         <span><i class= "fas fa-eye"></i></span>
       </i>
       ${item.uid === uid ? `
-      <i id="edit-book-btn--${item.firebaseKey}"  class="btn btn-info">
+      <i id="edit-card-btn--${item.firebaseKey}"  class="btn btn-info">
         <span><i class= "fas fa-edit"></i></span>
       </i>
-      <i id="delete-book-btn--${item.firebaseKey}"  class="btn btn-danger">
+      <i id="delete-card-btn--${item.firebaseKey}"  class="btn btn-danger">
         <span><i class= "fas fa-trash-alt"></i></span>
       </i>` : ''}
     </div>
