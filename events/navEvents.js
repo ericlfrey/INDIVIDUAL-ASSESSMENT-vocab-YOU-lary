@@ -28,20 +28,34 @@ const navEvents = (user) => {
     // SORT CARDS
     if (e.target.id.includes('sort')) {
       getVocabData().then((arr) => {
-        const titleSort = arr.sort((a, b) => a.title.localeCompare(b.title));
         // ALPHABETICALLY
         if (e.target.id === 'sortAlpha') {
+          const titleSort = arr.sort((a, b) => a.title.localeCompare(b.title));
           cardsOnDOM(titleSort, user.uid);
         }
         // NEWEST-OLDEST
         if (e.target.id === 'sortNewest') {
-          console.warn('Newest');
+          const dateSortNewest = arr.sort((a, b) => Date.parse(b.timeSubmitted) - Date.parse(a.timeSubmitted));
+          cardsOnDOM(dateSortNewest, user.uid);
         }
-        // OLDEST-NEWEST
+        // // OLDEST-NEWEST
         if (e.target.id === 'sortOldest') {
-          console.warn('Oldest');
+          const dateSortOldest = arr.sort((a, b) => Date.parse(a.timeSubmitted) - Date.parse(b.timeSubmitted));
+          cardsOnDOM(dateSortOldest, user.uid);
         }
       });
+    }
+  });
+  const searchBar = document.querySelector('#searchBar');
+  searchBar.addEventListener('keyup', (e) => {
+    if (e.keyCode === 13) {
+      const searchValue = searchBar.value.toLowerCase();
+      getVocabData().then((arr) => {
+        const searchArr = arr.filter((item) => item.title.toLowerCase().includes(searchValue)
+          || item.definition.toLowerCase().includes(searchValue));
+        cardsOnDOM(searchArr, user.uid);
+      });
+      searchBar.value = '';
     }
   });
 };

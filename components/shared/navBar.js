@@ -1,6 +1,7 @@
 import renderToDOM from '../../utils/renderToDom';
 import addEntryButton from '../buttons/addEntryButton';
 import filterDrop from './filterDrop';
+import searchBar from './searchBar';
 import sortDrop from './sortDrop';
 
 const navBar = () => {
@@ -18,6 +19,8 @@ const navBar = () => {
         </li>
         <li class="nav-item dropdown" id="sortDrop">
         </li>
+        <li class="nav-item" id="searchBarContainer">
+        </li>
         <li class="nav-item">
         <span class="navbar-text">
           <div id="logout-button"></div>
@@ -33,6 +36,7 @@ const navBar = () => {
   addEntryButton();
   sortDrop();
   filterDrop();
+  searchBar();
 };
 
 export default navBar;
