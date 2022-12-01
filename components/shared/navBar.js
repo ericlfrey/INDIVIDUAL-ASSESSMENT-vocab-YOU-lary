@@ -1,11 +1,12 @@
 import renderToDOM from '../../utils/renderToDom';
 import addEntryButton from '../buttons/addEntryButton';
 import addLanguageButton from '../buttons/addLanguageButton';
+import communityButton from '../buttons/communityButton';
 import filterDrop from './filterDrop';
 import searchBar from './searchBar';
 import sortDrop from './sortDrop';
 
-const navBar = (user) => {
+const navBar = (user, status) => {
   const domString = `
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
@@ -15,19 +16,19 @@ const navBar = (user) => {
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav" id="navbarNav">
+        <li class="nav-item" id="communityBtnContainer"> 
+        </li>
         <li class="nav-item" id="addEntryButton"> 
         </li>
         <li class="nav-item" id="addLanguageButton"> 
-        </li>
+        </li>        
         <li class="nav-item dropdown" id="filterDrop">
         </li>
         <li class="nav-item dropdown" id="sortDrop">
         </li>
         <li class="nav-item" id="searchBarContainer">
         </li>
-        <li class="nav-item">
-        <span class="navbar-text">
-          <div id="logout-button"></div>
+        <li class="nav-item" id="logout-button">
         </span>
         </li>
       </ul>
@@ -37,11 +38,14 @@ const navBar = (user) => {
   `;
 
   renderToDOM('#navBar', domString);
-  addEntryButton();
-  sortDrop();
+  communityButton();
+  sortDrop(status);
   filterDrop(user);
-  searchBar();
-  addLanguageButton();
+  searchBar(status);
+  if (status === '') {
+    addLanguageButton(status);
+    addEntryButton(status);
+  }
 };
 
 export default navBar;

@@ -1,8 +1,8 @@
-import { getVocabData } from '../api/vocabData';
+import { getUserVocabData } from '../api/vocabData';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
 const sortCards = (e, user) => {
-  getVocabData().then((arr) => {
+  getUserVocabData(user).then((arr) => {
     // ALPHABETICALLY
     if (e.target.id === 'sortAlpha') {
       const titleSort = arr.sort((a, b) => a.title.localeCompare(b.title));

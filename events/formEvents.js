@@ -1,5 +1,5 @@
 import { addLanguage, updateLanguage } from '../api/languageData';
-import { getVocabData } from '../api/vocabData';
+import { getUserVocabData } from '../api/vocabData';
 import addNewCard from '../functions/addNewCard';
 import updateCard from '../functions/updateCard';
 import cardsOnDOM from '../pages/cardsOnDOM';
@@ -25,7 +25,7 @@ const formEvents = (user) => {
       addLanguage(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateLanguage(patchPayload).then(() => {
-          getVocabData().then((arr) => {
+          getUserVocabData(user).then((arr) => {
             cardsOnDOM(arr, user.uid);
           });
         });

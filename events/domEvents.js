@@ -1,4 +1,4 @@
-import { deleteVocabCard, getSingleCard, getVocabData } from '../api/vocabData';
+import { deleteVocabCard, getSingleCard, getUserVocabData } from '../api/vocabData';
 import addCardForm from '../components/forms/addCardForm';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
@@ -20,7 +20,7 @@ const domEvents = (user) => {
     if (e.target.id.includes('delete-card-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       deleteVocabCard(firebaseKey).then(() => {
-        getVocabData(user.uid).then((arr) => {
+        getUserVocabData(user).then((arr) => {
           cardsOnDOM(arr, user.uid);
         });
       });

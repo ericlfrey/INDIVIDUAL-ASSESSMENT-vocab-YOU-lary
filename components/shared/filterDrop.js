@@ -5,7 +5,7 @@ const filterDrop = (user) => {
   getLanguages(user).then((arr) => {
     let domString = `
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Language/Tech
+        Filter
     </a>
     <ul class="dropdown-menu">
     `;

@@ -2,16 +2,16 @@ import cardsOnDOM from '../pages/cardsOnDOM';
 import logoutButton from '../components/buttons/logoutButton';
 import domBuilder from '../components/shared/domBuilder';
 import navBar from '../components/shared/navBar';
-import { getVocabData } from '../api/vocabData';
+import { getUserVocabData } from '../api/vocabData';
 import navEvents from '../events/navEvents';
 import formEvents from '../events/formEvents';
 import domEvents from '../events/domEvents';
 
 const startApp = (user) => {
   domBuilder(user);
-  navBar(user);
+  navBar(user, '');
   logoutButton();
-  getVocabData(user.uid).then((arr) => {
+  getUserVocabData(user).then((arr) => {
     cardsOnDOM(arr, user.uid);
   });
   navEvents(user);

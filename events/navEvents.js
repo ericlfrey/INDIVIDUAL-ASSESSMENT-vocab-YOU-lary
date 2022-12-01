@@ -1,7 +1,8 @@
-import { getLanguages } from '../api/languageData';
-import { getVocabData } from '../api/vocabData';
+import { getCommunityVocabData, getUserVocabData } from '../api/vocabData';
+import logoutButton from '../components/buttons/logoutButton';
 import addCardForm from '../components/forms/addCardForm';
 import addLanguageForm from '../components/forms/addLanguageForm';
+import navBar from '../components/shared/navBar';
 import filterCards from '../functions/filterCards';
 import search from '../functions/search';
 import sortCards from '../functions/sortCards';
@@ -16,9 +17,20 @@ const navEvents = (user) => {
     }
     // SHOW ALL CARDS
     if (e.target.id === 'logo') {
-      getVocabData().then((arr) => {
+      getUserVocabData(user).then((arr) => {
         cardsOnDOM(arr, user.uid);
       });
+    }
+    // COMMUNITY BUTTON
+    if (e.target.id === 'communityBtn') {
+      navBar(user, 'public');
+      logoutButton();
+      getCommunityVocabData(user).then((arr) => {
+        cardsOnDOM(arr, user.uid);
+      });
+    }
+    if (e.target.id.includes('public')) {
+      console.warn(e.target.id);
     }
     // ADD NEW CARD BUTTON
     if (e.target.id === 'showAddCardForm') {
@@ -35,7 +47,7 @@ const navEvents = (user) => {
     }
     // ADD LANGUAGE BUTTON
     if (e.target.id.includes('showAddLanguageForm')) {
-      getLanguages(user).then(addLanguageForm);
+      addLanguageForm();
     }
   });
   // SEARCH

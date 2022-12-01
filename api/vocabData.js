@@ -21,6 +21,46 @@ const getVocabData = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+// GET USER'S ENTRIES
+const getUserVocabData = (user) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabEntries.json?orderBy="uid"&equalTo="${user.uid}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
+// GET COMMUNITY DATA
+const getCommunityVocabData = (user) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabEntries.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const allData = Object.values(data);
+        const filteredData = allData.filter((item) => item.uid === user.uid || item.public === true);
+        resolve(filteredData);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 // GET SINGLE ENTRY
 const getSingleCard = (firebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/vocabEntries/${firebaseKey}.json`, {
@@ -76,5 +116,5 @@ const deleteVocabCard = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  getVocabData, addVocabCard, getSingleCard, updateVocabCard, deleteVocabCard
+  getVocabData, addVocabCard, getSingleCard, updateVocabCard, deleteVocabCard, getUserVocabData, getCommunityVocabData
 };
