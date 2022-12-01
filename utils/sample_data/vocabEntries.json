@@ -1,42 +1,54 @@
 {
-  "-NI0bBlBX8jm-UN_quFZ": {
-    "category": "JavaScript",
-    "definition": "A binary variable, having two possible values called “true” and “false.”",
-    "favorite": "true",
-    "firebaseKey": "-NI0bBlBX8jm-UN_quFZ",
-    "public": "true",
-    "timeSubmitted": "2022",
-    "title": "Boolean",
-    "uid": ""
-  },
-  "-NI0e7ZO_M5rzcnt9zw9": {
-    "category": "HTML",
-    "definition": "(Hypertext REFerence) The HTML code used to create a link to another page. The HREF is an attribute of the anchor tag, which is also used to identify sections within a document. The HREF contains two components: the URL, which is the actual link, and the clickable text that appears on the page, called the \"anchor text.\"",
-    "favorite": "false",
-    "firebaseKey": "-NI0e7ZO_M5rzcnt9zw9",
-    "public": "false",
-    "timeSubmitted": "2022",
-    "title": "HREF",
-    "uid": ""
-  },
-  "-NI0eLHC1ZHt73GmvA0F": {
-    "category": "CSS",
-    "definition": "The Flexible Box Layout Model (flexbox) is a layout model designed for one-dimensional content. It excels at taking a bunch of items which have different sizes, and returning the best layout for those items.",
-    "favorite": "true",
-    "firebaseKey": "-NI0eLHC1ZHt73GmvA0F",
-    "public": "false",
-    "timeSubmitted": "2022",
-    "title": "Flexbox",
-    "uid": ""
-  },
-  "-NI0egbvFCPaYo-8FegX": {
-    "category": "Tech",
-    "definition": "A hypermasculine man employed in the tech industry and stereotypically located in Silicon Valley.",
-    "favorite": "false",
-    "firebaseKey": "-NI0egbvFCPaYo-8FegX",
-    "public": "true",
-    "timeSubmitted": "2022",
-    "title": "Tech Bro",
-    "uid": ""
+  "vocabEntries": {
+    "-NI51vOlC4m7r4yA96hd": {
+      "category": "Tech",
+      "definition": "made up shite",
+      "favorite": false,
+      "firebaseKey": "-NI51vOlC4m7r4yA96hd",
+      "public": false,
+      "timeSubmitted": "2022-11-26T00:59:10.780Z",
+      "title": "FooBar",
+      "uid": "ScVTWWU4fEf9wcOzb4HUF19SWqd2"
+    },
+    "-NI9KbLUCDc1lKoIyo7o": {
+      "category": "JavaScript",
+      "definition": "A binary variable, having two possible values called “true” and “false.”\n\n",
+      "favorite": true,
+      "firebaseKey": "-NI9KbLUCDc1lKoIyo7o",
+      "public": true,
+      "timeSubmitted": "2022-11-27T18:52:20.531Z",
+      "title": "Boolean",
+      "uid": "ScVTWWU4fEf9wcOzb4HUF19SWqd2"
+    },
+    "-NI9KppXdPh62Pa7c8hI": {
+      "category": "HTML",
+      "definition": "(Hypertext REFerence) The HTML code used to create a link to another page. The HREF is an attribute of the anchor tag, which is also used to identify sections within a document. The HREF contains two components: the URL, which is the actual link, and the clickable text that appears on the page, called the \"anchor text.\"",
+      "favorite": true,
+      "firebaseKey": "-NI9KppXdPh62Pa7c8hI",
+      "public": false,
+      "timeSubmitted": "2022-11-28T18:52:20.531Z",
+      "title": "HREF",
+      "uid": "ScVTWWU4fEf9wcOzb4HUF19SWqd2"
+    },
+    "-NI9L4KlqlvyNzRxOOza": {
+      "category": "CSS",
+      "definition": "The Flexible Box Layout Model (flexbox) is a layout model designed for one-dimensional content. It excels at taking a bunch of items which have different sizes, and returning the best layout for those items.",
+      "favorite": true,
+      "firebaseKey": "-NI9L4KlqlvyNzRxOOza",
+      "public": false,
+      "timeSubmitted": "2022-11-29T21:01:12.375Z",
+      "title": "Flexbox",
+      "uid": "ScVTWWU4fEf9wcOzb4HUF19SWqd2"
+    },
+    "-NI9LIptjuRuIVIapsvI": {
+      "category": "Tech",
+      "definition": "A hypermasculine man employed in the tech industry and stereotypically located in Silicon Valley.",
+      "favorite": false,
+      "firebaseKey": "-NI9LIptjuRuIVIapsvI",
+      "public": true,
+      "timeSubmitted": "2022-11-30T21:02:03.673Z",
+      "title": "Tech Bro",
+      "uid": ""
+    }
   }
 }

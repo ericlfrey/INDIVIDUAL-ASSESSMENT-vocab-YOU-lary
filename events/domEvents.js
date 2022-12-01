@@ -13,7 +13,7 @@ const domEvents = (user) => {
     if (e.target.id.includes('edit-card-btn')) {
       const [, firebaseKey] = e.target.id.split('--');
       getSingleCard(firebaseKey).then((obj) => {
-        addCardForm(user.uid, obj);
+        addCardForm(user, obj);
       });
     }
     // DELETE CARD
