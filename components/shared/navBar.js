@@ -1,6 +1,8 @@
 import renderToDOM from '../../utils/renderToDom';
 import addEntryButton from '../buttons/addEntryButton';
+import addLanguageButton from '../buttons/addLanguageButton';
 import filterDrop from './filterDrop';
+import searchBar from './searchBar';
 import sortDrop from './sortDrop';
 
 const navBar = () => {
@@ -8,15 +10,20 @@ const navBar = () => {
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="#" id="logo">LOGO</a>
-    <div id="addEntryButton"></div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav" id="navbarNav">
-        <li class="nav-item">
-          <button class="btn btn-success add-card" aria-current="page" id="showAddCardForm">Add Entry</button>    
+        <li class="nav-item" id="addEntryButton"> 
+        </li>
+        <li class="nav-item" id="addLanguageButton"> 
         </li>
         <li class="nav-item dropdown" id="filterDrop">
         </li>
         <li class="nav-item dropdown" id="sortDrop">
+        </li>
+        <li class="nav-item" id="searchBarContainer">
         </li>
         <li class="nav-item">
         <span class="navbar-text">
@@ -33,6 +40,8 @@ const navBar = () => {
   addEntryButton();
   sortDrop();
   filterDrop();
+  searchBar();
+  addLanguageButton();
 };
 
 export default navBar;

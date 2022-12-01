@@ -2,7 +2,7 @@ import clearDOM from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
 import selectLanguage from './selectLanguage';
 
-const addCardForm = (uid, obj = {}) => {
+const addCardForm = (user, obj = {}) => {
   clearDOM();
   const domString = `
   <h1>${obj.firebaseKey ? 'Edit Entry Details' : 'Add New Entry'}</h1>
@@ -33,6 +33,6 @@ const addCardForm = (uid, obj = {}) => {
     </form>
   `;
   renderToDOM('#form-container', domString);
-  selectLanguage(obj);
+  selectLanguage(user, obj);
 };
 export default addCardForm;

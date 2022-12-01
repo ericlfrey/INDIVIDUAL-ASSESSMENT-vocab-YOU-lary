@@ -2,9 +2,7 @@ import renderToDOM from '../../utils/renderToDom';
 
 const addEntryButton = () => {
   const domString = `
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <button class="btn btn-success add-card btn-sm" aria-current="page" id="showAddCardForm">Add Entry</button>   
   `;
   renderToDOM('#addEntryButton', domString);
 };
