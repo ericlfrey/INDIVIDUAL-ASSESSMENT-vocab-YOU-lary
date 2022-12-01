@@ -34,7 +34,7 @@ const navEvents = (user) => {
       sortCards(e, user);
     }
     // ADD LANGUAGE BUTTON
-    if (e.target.id === 'showAddLanguageForm') {
+    if (e.target.id.includes('showAddLanguageForm')) {
       getLanguages(user).then(addLanguageForm);
     }
   });
