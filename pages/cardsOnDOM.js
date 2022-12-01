@@ -3,14 +3,20 @@ import renderToDOM from '../utils/renderToDom';
 
 const cardsOnDOM = (arr, uid) => {
   clearDOM();
-  const domString = `
+  if (arr.length === 0) {
+    const domString = `
+    <h1>No Entries</h1>
+    `;
+    renderToDOM('#main', domString);
+  } else {
+    const domString = `
     <h1>Card Title</h1>
     <div id="vocabCards"></div>
   `;
-  renderToDOM('#main', domString);
-  let cardString = '';
-  arr.forEach((item) => {
-    cardString += `
+    renderToDOM('#main', domString);
+    let cardString = '';
+    arr.forEach((item) => {
+      cardString += `
   <div class="card" style="width: 18rem;">
     <div class="card-body">
       <div class="fav-star" style="height: 26px;">
@@ -35,8 +41,9 @@ const cardsOnDOM = (arr, uid) => {
   </div>
 </div>
   `;
-    renderToDOM('#vocabCards', cardString);
-  });
+      renderToDOM('#vocabCards', cardString);
+    });
+  }
 };
 
 export default cardsOnDOM;

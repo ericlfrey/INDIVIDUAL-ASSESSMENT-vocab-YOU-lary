@@ -9,19 +9,20 @@ const filterDrop = (user) => {
     </a>
     <ul class="dropdown-menu">
     `;
-    arr.forEach((item) => {
+    if (arr.length === 0) {
       domString += `
-      <li><a class="dropdown-item" id="filter--${item.language}" value="${item.language}">${item.language}</a></li>
+      <li><a class="dropdown-item" id="showAddLanguageFormFilterDrop" value="">Add Language</a></li>
       `;
-    });
+    } else {
+      arr.forEach((item) => {
+        domString += `
+        <li><a class="dropdown-item" id="filter--${item.language}" value="${item.language}">${item.language}</a></li>
+        `;
+      });
+    }
     domString += '</ul>';
     renderToDOM('#filterDrop', domString);
   });
 };
 
 export default filterDrop;
-
-// <li><a class="dropdown-item" id="filter--JavaScript" value="JavaScript">JavaScript</a></li>
-// <li><a class="dropdown-item" id="filter--CSS" value="CSS">CSS</a></li>
-// <li><a class="dropdown-item" id="filter--HTML" value="HTML">HTML</a></li>
-// <li><a class="dropdown-item" id="filter--Tech" value="Tech">Tech</a></li>
