@@ -1,6 +1,7 @@
-import getLanguages from '../api/languageData';
+import { getLanguages } from '../api/languageData';
 import { getVocabData } from '../api/vocabData';
 import addCardForm from '../components/forms/addCardForm';
+import addLanguageForm from '../components/forms/addLanguageForm';
 import filterCards from '../functions/filterCards';
 import search from '../functions/search';
 import sortCards from '../functions/sortCards';
@@ -34,9 +35,7 @@ const navEvents = (user) => {
     }
     // ADD LANGUAGE BUTTON
     if (e.target.id === 'showAddLanguageForm') {
-      getLanguages(user).then((foo) => {
-        console.warn(foo);
-      });
+      getLanguages(user).then(addLanguageForm);
     }
   });
   // SEARCH
