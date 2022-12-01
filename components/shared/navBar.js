@@ -5,7 +5,7 @@ import filterDrop from './filterDrop';
 import searchBar from './searchBar';
 import sortDrop from './sortDrop';
 
-const navBar = () => {
+const navBar = (user) => {
   const domString = `
   <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
@@ -39,7 +39,7 @@ const navBar = () => {
   renderToDOM('#navBar', domString);
   addEntryButton();
   sortDrop();
-  filterDrop();
+  filterDrop(user);
   searchBar();
   addLanguageButton();
 };
