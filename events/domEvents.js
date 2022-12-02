@@ -25,6 +25,11 @@ const domEvents = (user) => {
         });
       });
     }
+    // ADD PUBLIC CARD
+    if (e.target.id.includes('add-card-btn')) {
+      const [, firebaseKey] = e.target.id.split('--');
+      console.warn(firebaseKey);
+    }
   });
 };
 

@@ -15,11 +15,15 @@ const navEvents = (user) => {
     }
     // SHOW ALL CARDS
     if (e.target.id === 'logo') {
-      showUserCards();
+      showUserCards(user);
     }
     // COMMUNITY BUTTON
     if (e.target.id === 'communityBtn') {
-      communityCards();
+      communityCards(user);
+    }
+    // HOME BUTTON
+    if (e.target.id === 'homeBtn') {
+      showUserCards(user);
     }
     // ADD NEW CARD BUTTON
     if (e.target.id === 'showAddCardForm') {

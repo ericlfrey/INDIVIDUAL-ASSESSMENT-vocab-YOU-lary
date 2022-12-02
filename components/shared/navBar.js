@@ -2,15 +2,19 @@ import renderToDOM from '../../utils/renderToDom';
 import addEntryButton from '../buttons/addEntryButton';
 import addLanguageButton from '../buttons/addLanguageButton';
 import communityButton from '../buttons/communityButton';
+import homeButton from '../buttons/homeButton';
 import filterDrop from './filterDrop';
 import searchBar from './searchBar';
 import sortDrop from './sortDrop';
 
 const navBar = (user, status) => {
   const domString = `
-  <nav class="navbar navbar-expand-lg bg-light">
+  <nav class="navbar navbar-expand-lg">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#" id="logo">LOGO</a>
+    <a class="navbar-brand" href="#" id="logo">
+    <i class="fa fa-book logo"></i>
+      <i class="fa fa-pen-nib logo">LOGO</i>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,7 +42,8 @@ const navBar = (user, status) => {
   `;
 
   renderToDOM('#navBar', domString);
-  communityButton();
+  homeButton(status);
+  communityButton(status);
   sortDrop(status);
   filterDrop(user, status);
   searchBar(status);

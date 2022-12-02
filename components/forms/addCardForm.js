@@ -5,6 +5,7 @@ import selectLanguage from './selectLanguage';
 const addCardForm = (user, obj = {}) => {
   clearDOM();
   const domString = `
+  <div id="formFlex">
   <h1>${obj.firebaseKey ? 'Edit Entry Details' : 'Add New Entry'}</h1>
     <form id="${obj.firebaseKey ? `update-card--${obj.firebaseKey}` : 'submit-card'}" class="mb-4">
       <div class="form-group">
@@ -31,6 +32,7 @@ const addCardForm = (user, obj = {}) => {
       <button type="submit" class="btn btn-primary">Submit Entry
       </button>
     </form>
+    </div>
   `;
   renderToDOM('#form-container', domString);
   selectLanguage(user, obj);
