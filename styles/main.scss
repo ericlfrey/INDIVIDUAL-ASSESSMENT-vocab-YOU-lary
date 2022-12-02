@@ -3,7 +3,7 @@
 
 
 body {
-  background-color:skyblue;
+  background-color:lightgreen;
   color: rgb(63, 63, 63);
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -19,16 +19,19 @@ body {
   align-items: flex-end;
 }
 
+.grey-text {
+  color: grey;
+}
+
 .dropdown-menu {
   margin: 0;
 }
 
- #showAddCardForm{
-  color: white;
-}
-
 .heading {
   margin-left: 20%;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  color: #22577a;
+  text-shadow: 0 0 2px oldlace;
 }
 
 #vocabCards {
@@ -56,8 +59,9 @@ body {
 
 .card-body{
   display: flex;
+  color:dimgray;
   flex-direction: column;
-  background-color:rgb(255, 251, 244);
+  background-color:oldlace;
 }
 
 .card-icons {
@@ -81,7 +85,8 @@ body {
   color:crimson;
 }
 
-i > span {
+i > span,
+a > i {
   pointer-events: none;
 }
 

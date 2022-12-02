@@ -6,7 +6,7 @@ const selectLanguage = (user, obj = {}) => {
     let domString = `
   <label for="language">Select Language/Tech</label>
     <select class="form-control" id="category" required>
-    <option value="select">Select Language/Tech</option>`;
+    <option value="no language selected">Select Language/Tech</option>`;
     arr.forEach((item) => {
       domString += `
       <option value="${item.language}" >${item.language}</option>
@@ -18,7 +18,7 @@ const selectLanguage = (user, obj = {}) => {
     if (obj.category) {
       select.value = obj.category;
     } else {
-      select.value = 'select';
+      select.value = 'no language selected';
     }
   });
 };

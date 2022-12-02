@@ -1,5 +1,8 @@
-import { deleteVocabCard, getSingleCard, getUserVocabData } from '../api/vocabData';
+import {
+  deleteVocabCard, getSingleCard, getUserVocabData
+} from '../api/vocabData';
 import addCardForm from '../components/forms/addCardForm';
+import addPublicCard from '../functions/addPublicCard';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
 const domEvents = (user) => {
@@ -27,8 +30,7 @@ const domEvents = (user) => {
     }
     // ADD PUBLIC CARD
     if (e.target.id.includes('add-card-btn')) {
-      const [, firebaseKey] = e.target.id.split('--');
-      console.warn(firebaseKey);
+      addPublicCard(e, user);
     }
   });
 };

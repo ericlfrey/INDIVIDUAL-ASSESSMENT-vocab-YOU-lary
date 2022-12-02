@@ -2,7 +2,7 @@ import renderToDOM from '../../utils/renderToDom';
 
 const addEntryButton = () => {
   const domString = `
-  <button class="btn btn-secondary add-card btn-sm" aria-current="page" id="showAddCardForm">Add Entry</button>   
+  <button class="btn grey-text add-card btn-sm" aria-current="page" id="showAddCardForm">Add Entry</button>   
   `;
   renderToDOM('#addEntryButton', domString);
 };

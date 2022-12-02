@@ -10,6 +10,7 @@ const addNewCard = (user) => {
     favorite: document.querySelector('#favorite').checked,
     public: document.querySelector('#public').checked,
     uid: user.uid,
+    author: user.displayName,
     timeSubmitted: currentDate
   };
   addVocabCard(payload).then(({ name }) => {
