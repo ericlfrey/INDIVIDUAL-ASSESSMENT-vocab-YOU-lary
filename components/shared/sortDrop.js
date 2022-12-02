@@ -6,9 +6,9 @@ const sortDrop = (status) => {
   Sort
     </a>
     <ul class="dropdown-menu">
-      <li><a class="dropdown-item" id="sortAlpha${status}" value="">Alphabetically</a></li>
-      <li><a class="dropdown-item" id="sortNewest${status}" value="">Newest</a></li>
-      <li><a class="dropdown-item" id="sortOldest${status}" value="">Oldest</a></li>
+      <li><a class="dropdown-item" id="${status}sortAlpha" value="">Alphabetically</a></li>
+      <li><a class="dropdown-item" id="${status}sortNewest" value="">Newest</a></li>
+      <li><a class="dropdown-item" id="${status}sortOldest" value="">Oldest</a></li>
     </ul>
   `;
   renderToDOM('#sortDrop', domString);

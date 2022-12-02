@@ -1,7 +1,7 @@
 import { getLanguages } from '../../api/languageData';
 import renderToDOM from '../../utils/renderToDom';
 
-const filterDrop = (user) => {
+const filterDrop = (user, status) => {
   getLanguages(user).then((arr) => {
     let domString = `
     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -16,7 +16,7 @@ const filterDrop = (user) => {
     } else {
       arr.forEach((item) => {
         domString += `
-        <li><a class="dropdown-item" id="filter--${item.language}" value="${item.language}">${item.language}</a></li>
+        <li><a class="dropdown-item" id="${status}filter--${item.language}" value="${item.language}">${item.language}</a></li>
         `;
       });
     }

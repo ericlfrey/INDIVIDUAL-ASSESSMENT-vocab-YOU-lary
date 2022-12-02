@@ -1,7 +1,7 @@
 import client from '../utils/client';
 
 const endpoint = client.databaseURL;
-
+// GET USER LANGUAGES
 const getLanguages = (user) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/languages.json?orderBy="uid"&equalTo="${user.uid}"`, {
     method: 'GET',
@@ -19,25 +19,27 @@ const getLanguages = (user) => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
-
-// const getUserLanguages = (user) => new Promise((resolve, reject) => {
-//   fetch(`${endpoint}/languages.json`, {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   })
-//     .then((response) => response.json())
-//     .then((data) => {
-//       if (data) {
-//         const languages = Object.values(data);
-//         const userLanguages = languages.map((item) => )
-//       } else {
-//         resolve([]);
-//       }
-//     })
-//     .catch(reject);
-// });
+// GET PUBLIC LANGUAGES
+const getCommunityLanguages = (user) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/vocabEntries.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const allData = Object.values(data);
+        const filteredData = allData.filter((item) => item.uid === user.uid || item.public === true).map((item) => item.category);
+        const filteredLanguages = filteredData.filter((item, index) => filteredData.indexOf(item) === index);
+        resolve(filteredLanguages);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 
 const addLanguage = (payload) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/languages.json`, {
@@ -80,5 +82,5 @@ const deleteLanguage = (firebaseKey) => new Promise((resolve, reject) => {
 });
 
 export {
-  getLanguages, addLanguage, updateLanguage, deleteLanguage
+  getLanguages, addLanguage, updateLanguage, deleteLanguage, getCommunityLanguages
 };

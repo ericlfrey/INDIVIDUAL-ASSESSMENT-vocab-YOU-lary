@@ -40,11 +40,11 @@ const navBar = (user, status) => {
   renderToDOM('#navBar', domString);
   communityButton();
   sortDrop(status);
-  filterDrop(user);
+  filterDrop(user, status);
   searchBar(status);
-  if (status === '') {
-    addLanguageButton(status);
-    addEntryButton(status);
+  if (status === 'user') {
+    addLanguageButton();
+    addEntryButton();
   }
 };
 

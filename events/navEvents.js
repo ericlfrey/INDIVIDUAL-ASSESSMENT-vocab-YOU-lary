@@ -5,7 +5,7 @@ import addLanguageForm from '../components/forms/addLanguageForm';
 import navBar from '../components/shared/navBar';
 import filterCards from '../functions/filterCards';
 import search from '../functions/search';
-import sortCards from '../functions/sortCards';
+import { sortPublicCards, sortUserCards } from '../functions/sortCards';
 import cardsOnDOM from '../pages/cardsOnDOM';
 import { signOut } from '../utils/auth';
 
@@ -30,7 +30,7 @@ const navEvents = (user) => {
       });
     }
     if (e.target.id.includes('public')) {
-      console.warn(e.target.id);
+      sortPublicCards(e, user);
     }
     // ADD NEW CARD BUTTON
     if (e.target.id === 'showAddCardForm') {
@@ -42,8 +42,8 @@ const navEvents = (user) => {
       filterCards(language, user);
     }
     // SORT CARDS
-    if (e.target.id.includes('sort')) {
-      sortCards(e, user);
+    if (e.target.id.includes('usersort')) {
+      sortUserCards(e, user);
     }
     // ADD LANGUAGE BUTTON
     if (e.target.id.includes('showAddLanguageForm')) {
@@ -51,7 +51,7 @@ const navEvents = (user) => {
     }
   });
   // SEARCH
-  document.querySelector('#searchBar').addEventListener('keyup', (e) => {
+  document.querySelector('#usersearchBar').addEventListener('keyup', (e) => {
     search(e, user);
   });
 };

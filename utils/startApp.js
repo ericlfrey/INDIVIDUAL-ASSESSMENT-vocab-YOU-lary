@@ -9,7 +9,7 @@ import domEvents from '../events/domEvents';
 
 const startApp = (user) => {
   domBuilder(user);
-  navBar(user, '');
+  navBar(user, 'user');
   logoutButton();
   getUserVocabData(user).then((arr) => {
     cardsOnDOM(arr, user.uid);
