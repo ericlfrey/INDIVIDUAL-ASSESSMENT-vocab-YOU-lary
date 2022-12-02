@@ -10,12 +10,6 @@ const addLanguageForm = (obj = {}) => {
         <label for="language">Language</label>
         <input type="text" class="form-control" id="languageInput" placeholder="Language" value="${obj.language || ''}" required>
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" value="" id="favoriteLanguage" ${obj.title ? 'checked' : ''}>
-        <label class="form-check-label" for="favoriteLanguage">
-       Favorite
-        </label>
-      </div>
       <div id="submitLanguageBtn"></div>
       <button type="submit" class="btn btn-primary mt-3">enter</button>
     </form>`;

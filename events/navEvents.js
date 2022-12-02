@@ -1,12 +1,11 @@
-import { getLanguages } from '../api/languageData';
-import { getVocabData } from '../api/vocabData';
 import addCardForm from '../components/forms/addCardForm';
 import addLanguageForm from '../components/forms/addLanguageForm';
-import filterCards from '../functions/filterCards';
 import search from '../functions/search';
-import sortCards from '../functions/sortCards';
-import cardsOnDOM from '../pages/cardsOnDOM';
+import { sortPublicCards, sortUserCards } from '../functions/sortCards';
 import { signOut } from '../utils/auth';
+import { filterUserCards, filterPublicCards } from '../functions/filterCards';
+import showUserCards from '../functions/showUserCards';
+import communityCards from '../functions/communityCards';
 
 const navEvents = (user) => {
   document.querySelector('#navBar').addEventListener('click', (e) => {
@@ -16,30 +15,45 @@ const navEvents = (user) => {
     }
     // SHOW ALL CARDS
     if (e.target.id === 'logo') {
-      getVocabData().then((arr) => {
-        cardsOnDOM(arr, user.uid);
-      });
+      showUserCards(user);
+    }
+    // COMMUNITY BUTTON
+    if (e.target.id === 'communityBtn') {
+      communityCards(user);
+    }
+    // HOME BUTTON
+    if (e.target.id === 'homeBtn') {
+      showUserCards(user);
     }
     // ADD NEW CARD BUTTON
     if (e.target.id === 'showAddCardForm') {
       addCardForm(user);
     }
-    // FILTER CARDS
-    if (e.target.id.includes('filter')) {
+    // FILTER USER CARDS
+    if (e.target.id.includes('userfilter')) {
       const [, language] = e.target.id.split('--');
-      filterCards(language, user);
+      filterUserCards(language, user);
     }
-    // SORT CARDS
-    if (e.target.id.includes('sort')) {
-      sortCards(e, user);
+    // FILTER PUBLIC CARDS
+    if (e.target.id.includes('publicfilter')) {
+      const [, language] = e.target.id.split('--');
+      filterPublicCards(language, user);
+    }
+    // SORT USER CARDS
+    if (e.target.id.includes('usersort')) {
+      sortUserCards(e, user);
+    }
+    // SORT PUBLIC CARDS
+    if (e.target.id.includes('publicsort')) {
+      sortPublicCards(e, user);
     }
     // ADD LANGUAGE BUTTON
     if (e.target.id.includes('showAddLanguageForm')) {
-      getLanguages(user).then(addLanguageForm);
+      addLanguageForm();
     }
   });
   // SEARCH
-  document.querySelector('#searchBar').addEventListener('keyup', (e) => {
+  document.querySelector('#usersearchBar').addEventListener('keyup', (e) => {
     search(e, user);
   });
 };

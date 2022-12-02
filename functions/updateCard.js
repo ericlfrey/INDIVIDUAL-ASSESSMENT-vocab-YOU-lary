@@ -1,4 +1,4 @@
-import { getVocabData, updateVocabCard } from '../api/vocabData';
+import { getUserVocabData, updateVocabCard } from '../api/vocabData';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
 const updateCard = (user, firebaseKey) => {
@@ -13,7 +13,7 @@ const updateCard = (user, firebaseKey) => {
     firebaseKey
   };
   updateVocabCard(payload).then(() => {
-    getVocabData().then((arr) => {
+    getUserVocabData(user).then((arr) => {
       cardsOnDOM(arr, user.uid);
     });
   });

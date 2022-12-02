@@ -1,4 +1,4 @@
-import { addVocabCard, getVocabData, updateVocabCard } from '../api/vocabData';
+import { addVocabCard, getUserVocabData, updateVocabCard } from '../api/vocabData';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
 const addNewCard = (user) => {
@@ -15,7 +15,7 @@ const addNewCard = (user) => {
   addVocabCard(payload).then(({ name }) => {
     const patchPayload = { firebaseKey: name };
     updateVocabCard(patchPayload).then(() => {
-      getVocabData().then((arr) => {
+      getUserVocabData(user).then((arr) => {
         cardsOnDOM(arr, user.uid);
       });
     });
