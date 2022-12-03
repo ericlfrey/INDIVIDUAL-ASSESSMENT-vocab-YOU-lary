@@ -4,7 +4,7 @@ import renderToDOM from '../../utils/renderToDom';
 const selectLanguage = (user, obj = {}) => {
   getLanguages(user).then((arr) => {
     let domString = `
-  <label for="language">Select Language/Tech</label>
+  <label for="category">Select Language/Tech</label>
     <select class="form-control" id="category" required>
     <option value="no language selected">Select Language/Tech</option>`;
     arr.forEach((item) => {

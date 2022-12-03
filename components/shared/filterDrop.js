@@ -4,7 +4,7 @@ import renderToDOM from '../../utils/renderToDom';
 const filterDrop = (user, status) => {
   getLanguages(user).then((arr) => {
     let domString = `
-    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <a class="nav-link dropdown-toggle" id="navFilter" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
         Filter
     </a>
     <ul class="dropdown-menu">

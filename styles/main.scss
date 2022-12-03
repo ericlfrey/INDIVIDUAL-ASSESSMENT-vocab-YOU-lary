@@ -4,8 +4,13 @@
 
 body {
   background-color:lightgreen;
-  color: rgb(63, 63, 63);
+  // color: rgb(63, 63, 63);
+  color: #22577a;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#app {
+  text-align: center;
 }
 
 #navBar {
@@ -16,7 +21,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
 }
 
 .grey-text {
@@ -28,10 +33,8 @@ body {
 }
 
 .heading {
-  margin-left: 20%;
   font-family:Georgia, 'Times New Roman', Times, serif;
   color: #22577a;
-  text-shadow: 0 0 2px oldlace;
 }
 
 #vocabCards {
@@ -90,6 +93,7 @@ a > i {
   pointer-events: none;
 }
 
-.definition {
+.definition,
+.author {
   font-size: 11px;
 }

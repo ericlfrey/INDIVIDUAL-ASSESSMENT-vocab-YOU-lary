@@ -1,13 +1,13 @@
 import clearDOM from '../../utils/clearDom';
 import renderToDOM from '../../utils/renderToDom';
-import selectLanguage from './selectLanguage';
 
-const addCardForm = (user, obj = {}) => {
+const addLessonForm = (user, obj = {}) => {
   clearDOM();
+  console.warn(user.displayName);
   const domString = `
   <div id="formFlex">
-  <h1>${obj.firebaseKey ? 'Edit Entry Details' : 'Add New Entry'}</h1>
-    <form id="${obj.firebaseKey ? `update-card--${obj.firebaseKey}` : 'submit-card'}" class="mb-4">
+  <h1>Lesson Plans</h1>
+    <form id="lessonPlanFom" class="mb-4">
       <div class="form-group">
         <label for="title">Entry Title</label>
         <input type="text" class="form-control" id="title" aria-describedby="bookTitle" placeholder="Enter Title" value="${obj.title || ''}" required>
@@ -36,6 +36,6 @@ const addCardForm = (user, obj = {}) => {
     </div>
   `;
   renderToDOM('#form-container', domString);
-  selectLanguage(user, obj);
 };
-export default addCardForm;
+
+export default addLessonForm;
