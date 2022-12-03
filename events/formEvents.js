@@ -1,8 +1,6 @@
-import { addLanguage, updateLanguage } from '../api/languageData';
-import { getUserVocabData } from '../api/vocabData';
 import addNewCard from '../functions/addNewCard';
+import addNewLanguage from '../functions/addNewLanguage';
 import updateCard from '../functions/updateCard';
-import cardsOnDOM from '../pages/cardsOnDOM';
 
 const formEvents = (user) => {
   document.querySelector('#form-container').addEventListener('submit', (e) => {
@@ -18,18 +16,7 @@ const formEvents = (user) => {
     }
     // ADD LANGUAGE
     if (e.target.id === 'submit-language') {
-      const payload = {
-        language: document.querySelector('#languageInput').value,
-        uid: user.uid
-      };
-      addLanguage(payload).then(({ name }) => {
-        const patchPayload = { firebaseKey: name };
-        updateLanguage(patchPayload).then(() => {
-          getUserVocabData(user).then((arr) => {
-            cardsOnDOM(arr, user.uid);
-          });
-        });
-      });
+      addNewLanguage(user);
     }
   });
 };

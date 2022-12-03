@@ -2,6 +2,7 @@ import {
   addVocabCard, getSingleCard, getUserVocabData, updateVocabCard
 } from '../api/vocabData';
 import cardsOnDOM from '../pages/cardsOnDOM';
+import addPublicLanguage from './addPublicLanguage';
 
 const addPublicCard = (e, user) => {
   const [, firebaseKey] = e.target.id.split('--');
@@ -25,6 +26,7 @@ const addPublicCard = (e, user) => {
         });
       });
     });
+    addPublicLanguage(obj, user);
   });
 };
 
