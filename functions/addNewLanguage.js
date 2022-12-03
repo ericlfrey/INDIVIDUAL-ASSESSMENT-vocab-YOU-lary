@@ -1,9 +1,9 @@
-import { getLanguages, updateLanguage } from '../api/languageData';
+import { addLanguage, getLanguages, updateLanguage } from '../api/languageData';
 import { getUserVocabData } from '../api/vocabData';
-import navBar from '../components/shared/navBar';
+import filterDrop from '../components/shared/filterDrop';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
-const addLanguage = (user) => {
+const addNewLanguage = (user) => {
   const payload = {
     language: document.querySelector('#languageInput').value,
     uid: user.uid
@@ -13,7 +13,7 @@ const addLanguage = (user) => {
     updateLanguage(patchPayload).then(() => {
       getLanguages(user).then(() => {
         getUserVocabData(user).then((arr) => {
-          navBar(user, 'user');
+          filterDrop(user, 'user');
           cardsOnDOM(arr, user.uid);
         });
       });
@@ -21,4 +21,4 @@ const addLanguage = (user) => {
   });
 };
 
-export default addLanguage;
+export default addNewLanguage;

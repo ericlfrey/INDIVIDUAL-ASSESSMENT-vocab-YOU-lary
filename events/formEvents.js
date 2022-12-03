@@ -1,5 +1,5 @@
-import { addLanguage } from '../api/languageData';
 import addNewCard from '../functions/addNewCard';
+import addNewLanguage from '../functions/addNewLanguage';
 import updateCard from '../functions/updateCard';
 
 const formEvents = (user) => {
@@ -16,7 +16,7 @@ const formEvents = (user) => {
     }
     // ADD LANGUAGE
     if (e.target.id === 'submit-language') {
-      addLanguage(user);
+      addNewLanguage(user);
     }
   });
 };
