@@ -1,11 +1,12 @@
 import addCardForm from '../components/forms/addCardForm';
 import addLanguageForm from '../components/forms/addLanguageForm';
-import search from '../functions/search';
+import { publicSearch, userSearch } from '../functions/search';
 import { sortPublicCards, sortUserCards } from '../functions/sortCards';
 import { signOut } from '../utils/auth';
 import { filterUserCards, filterPublicCards } from '../functions/filterCards';
 import showUserCards from '../functions/showUserCards';
-import communityCards from '../functions/communityCards';
+import showPublicCards from '../functions/showPublicCards';
+import addLessonPlan from '../functions/addLessonPlans';
 
 const navEvents = (user) => {
   document.querySelector('#navBar').addEventListener('click', (e) => {
@@ -19,7 +20,7 @@ const navEvents = (user) => {
     }
     // COMMUNITY BUTTON
     if (e.target.id === 'communityBtn') {
-      communityCards(user);
+      showPublicCards(user);
     }
     // HOME BUTTON
     if (e.target.id === 'homeBtn') {
@@ -51,10 +52,20 @@ const navEvents = (user) => {
     if (e.target.id.includes('showAddLanguageForm')) {
       addLanguageForm();
     }
+    // ADD LESSON PLAN BUTTON
+    if (e.target.id.includes('addLessonPlanButton')) {
+      addLessonPlan(user);
+      // showAddLessonForm
+    }
   });
   // SEARCH
-  document.querySelector('#usersearchBar').addEventListener('keyup', (e) => {
-    search(e, user);
+  document.querySelector('#navBar').addEventListener('keyup', (e) => {
+    if (e.target.id === 'usersearchBar') {
+      userSearch(e, user);
+    }
+    if (e.target.id === 'publicsearchBar') {
+      publicSearch(e, user);
+    }
   });
 };
 

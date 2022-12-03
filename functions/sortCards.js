@@ -2,6 +2,11 @@ import { getCommunityVocabData, getUserVocabData } from '../api/vocabData';
 import cardsOnDOM from '../pages/cardsOnDOM';
 
 const sortCards = (e, arr, user) => {
+  // FAVORITES
+  if (e.target.id.includes('sortFavorites')) {
+    const favoriteSort = arr.sort((a, b) => b.favorite - a.favorite);
+    cardsOnDOM(favoriteSort, user.uid);
+  }
   // ALPHABETICALLY
   if (e.target.id.includes('sortAlpha')) {
     const titleSort = arr.sort((a, b) => a.title.localeCompare(b.title));

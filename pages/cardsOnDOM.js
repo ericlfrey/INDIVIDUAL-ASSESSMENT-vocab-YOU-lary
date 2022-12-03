@@ -32,15 +32,17 @@ const cardsOnDOM = (arr, uid) => {
     <p class="card-text definition">${item.definition}</p>
     <div class="book-icons">
       ${item.uid === uid ? `
+      <p class="author">Author: ${item.author}</p>
       <hr>
-      <i id="edit-card-btn--${item.firebaseKey}"  class="btn btn-info btn-sm round">
+      <i id="edit-card-btn--${item.firebaseKey}"  class="btn link-info btn-sm round">
         <span><i class= "fas fa-edit"></i></span>
       </i>
-      <i id="delete-card-btn--${item.firebaseKey}"  class="btn btn-danger btn-sm round">
+      <i id="delete-card-btn--${item.firebaseKey}"  class="btn link-danger btn-sm round">
         <span><i class= "fas fa-trash-alt"></i></span>
       </i>` : `
+      <p class="author">Author: ${item.author}</p>
       <hr>
-      <i id="add-card-btn--${item.firebaseKey}"  class="btn btn-primary btn-sm round">
+      <i id="add-card-btn--${item.firebaseKey}"  class="btn link-primary btn-sm round">
         <span><i class= "fas fa-plus"></i></span>
       </i>
       `}
