@@ -6,7 +6,6 @@ import { signOut } from '../utils/auth';
 import { filterUserCards, filterPublicCards } from '../functions/filterCards';
 import showUserCards from '../functions/showUserCards';
 import showPublicCards from '../functions/showPublicCards';
-import addLessonPlan from '../functions/addLessonPlans';
 
 const navEvents = (user) => {
   document.querySelector('#navBar').addEventListener('click', (e) => {
@@ -54,8 +53,11 @@ const navEvents = (user) => {
     }
     // ADD LESSON PLAN BUTTON
     if (e.target.id.includes('addLessonPlanButton')) {
-      addLessonPlan(user);
-      // showAddLessonForm
+      // addLessonForm(user);
+    }
+    // SHOW LESSON PLANS
+    if (e.target.id.includes('lessonPlanButton')) {
+      console.warn('lessonPlanButton');
     }
   });
   // SEARCH

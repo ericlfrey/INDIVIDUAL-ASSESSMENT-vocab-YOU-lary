@@ -1,7 +1,5 @@
-import addLessonForm from '../components/forms/addLessonForm';
-
 const addLessonPlan = (user) => {
-  addLessonForm(user);
+  console.warn(user);
 };
 
 export default addLessonPlan;
