@@ -52,7 +52,7 @@ const navBar = (user, status) => {
   filterDrop(user, status);
   searchBar(status);
   if (status === 'user') {
-    addDrop(status);
+    addDrop();
     addLanguageButton();
     addEntryButton();
     addLessonPlanButton();

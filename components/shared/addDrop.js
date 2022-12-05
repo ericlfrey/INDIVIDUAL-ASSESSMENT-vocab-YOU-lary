@@ -1,7 +1,6 @@
 import renderToDOM from '../../utils/renderToDom';
 
-const addDrop = (status) => {
-  console.warn(status);
+const addDrop = () => {
   const domString = `
     <a class="nav-link dropdown-toggle" id="navAdd" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Add
