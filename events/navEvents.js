@@ -7,8 +7,7 @@ import { filterUserCards, filterPublicCards } from '../functions/filterCards';
 import showUserCards from '../functions/showUserCards';
 import showPublicCards from '../functions/showPublicCards';
 import addLessonForm from '../components/forms/addLessonForm';
-import lessonsOnDOM from '../pages/lessonsOnDOM';
-import { getUserLessons } from '../api/lessonData';
+import showLessons from '../functions/showLessons';
 
 const navEvents = (user) => {
   document.querySelector('#navBar').addEventListener('click', (e) => {
@@ -60,9 +59,7 @@ const navEvents = (user) => {
     }
     // SHOW LESSON PLANS
     if (e.target.id.includes('lessonPlanButton')) {
-      getUserLessons(user).then((arr) => {
-        lessonsOnDOM(arr, user);
-      });
+      showLessons(user);
     }
   });
   // SEARCH

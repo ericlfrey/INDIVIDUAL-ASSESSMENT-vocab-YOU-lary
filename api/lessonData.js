@@ -54,6 +54,30 @@ const getLessonCards = (arr, user) => new Promise((resolve, reject) => {
   }).catch(reject);
 });
 
+const getSingleLesson = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/lessons/${firebaseKey}.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const deleteLesson = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/lessons/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
-  createLesson, updateLesson, getLessonCards, getUserLessons
+  createLesson, updateLesson, getLessonCards, getUserLessons, getSingleLesson, deleteLesson
 };
