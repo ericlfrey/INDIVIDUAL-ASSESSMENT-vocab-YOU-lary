@@ -6,7 +6,9 @@ import { signOut } from '../utils/auth';
 import { filterUserCards, filterPublicCards } from '../functions/filterCards';
 import showUserCards from '../functions/showUserCards';
 import showPublicCards from '../functions/showPublicCards';
-import addLessonPlan from '../functions/addLessonPlans';
+import addLessonForm from '../components/forms/addLessonForm';
+import lessonsOnDOM from '../pages/lessonsOnDOM';
+import { getUserLessons } from '../api/lessonData';
 
 const navEvents = (user) => {
   document.querySelector('#navBar').addEventListener('click', (e) => {
@@ -53,9 +55,14 @@ const navEvents = (user) => {
       addLanguageForm();
     }
     // ADD LESSON PLAN BUTTON
-    if (e.target.id.includes('addLessonPlanButton')) {
-      addLessonPlan(user);
-      // showAddLessonForm
+    if (e.target.id.includes('showAddLessonForm')) {
+      addLessonForm(user);
+    }
+    // SHOW LESSON PLANS
+    if (e.target.id.includes('lessonPlanButton')) {
+      getUserLessons(user).then((arr) => {
+        lessonsOnDOM(arr, user);
+      });
     }
   });
   // SEARCH

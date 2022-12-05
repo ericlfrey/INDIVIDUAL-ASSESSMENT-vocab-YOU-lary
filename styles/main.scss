@@ -4,7 +4,6 @@
 
 body {
   background-color:lightgreen;
-  // color: rgb(63, 63, 63);
   color: #22577a;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -51,6 +50,47 @@ body {
   }
 }
 
+#vocabCards {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+
+  .card {
+    width: 200px;
+    margin: 15px;
+  }
+}
+
+#viewLessonCards {
+  width: 90%;
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+
+  .card {
+    width: 200px;
+    margin: 15px;
+  }
+}
+
+// #lessonCards {
+//   display: flex;
+//   flex-flow: row wrap;
+//   text-align: center;
+//   margin: auto;
+//   justify-content: center;
+
+//   .card {
+//     width: 200px;
+//     margin: 15px;
+//   }
+// }
+
 #form-container {
   width: 60%;
   margin: auto;
@@ -58,6 +98,10 @@ body {
   #formModal {
     color: black;
   }
+}
+
+.form-flex {
+  text-align: left;
 }
 
 .card-body{

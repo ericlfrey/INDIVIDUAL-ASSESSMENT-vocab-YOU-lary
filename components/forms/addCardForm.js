@@ -5,7 +5,7 @@ import selectLanguage from './selectLanguage';
 const addCardForm = (user, obj = {}) => {
   clearDOM();
   const domString = `
-  <div id="formFlex">
+  <div class="form-flex" id= "formFlex">
   <h1>${obj.firebaseKey ? 'Edit Entry Details' : 'Add New Entry'}</h1>
     <form id="${obj.firebaseKey ? `update-card--${obj.firebaseKey}` : 'submit-card'}" class="mb-4">
       <div class="form-group">
