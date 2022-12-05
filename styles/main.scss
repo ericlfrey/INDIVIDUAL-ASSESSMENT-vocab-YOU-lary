@@ -78,18 +78,18 @@ body {
   }
 }
 
-// #lessonCards {
-//   display: flex;
-//   flex-flow: row wrap;
-//   text-align: center;
-//   margin: auto;
-//   justify-content: center;
+#lessonCards {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
 
-//   .card {
-//     width: 200px;
-//     margin: 15px;
-//   }
-// }
+  .card {
+    width: 200px;
+    margin: 15px;
+  }
+}
 
 #form-container {
   width: 60%;

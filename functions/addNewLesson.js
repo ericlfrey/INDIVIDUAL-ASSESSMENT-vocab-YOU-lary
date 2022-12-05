@@ -1,5 +1,8 @@
 // import { lessonPlanCards } from '../api/lessonData';
-import { createLesson, getLessonCards, updateLesson } from '../api/lessonData';
+import {
+  createLesson, getLessonCards, getUserLessons, updateLesson
+} from '../api/lessonData';
+import lessonsOnDOM from '../pages/lessonsOnDOM';
 
 const addNewLesson = (user) => {
   const lessonCardKeys = [];
@@ -18,7 +21,11 @@ const addNewLesson = (user) => {
     };
     createLesson(payload).then(({ name }) => {
       const patchPayload = { firebaseKey: name };
-      updateLesson(patchPayload).then(/* add code here */);
+      updateLesson(patchPayload).then(() => {
+        getUserLessons(user).then((arr) => {
+          lessonsOnDOM(arr, user);
+        });
+      });
     });
   });
 };
