@@ -26,6 +26,7 @@ As a developer, this project was helpful in learning:
 ## Relevant Links
 - [ERD](https://user-images.githubusercontent.com/107942776/205775411-02ea2bf1-03ae-4f23-b328-12e58756f5ad.png)
 - [App](https://elfrey-vocab-you-lary.netlify.app/)
+- [WireFrame](https://www.figma.com/file/yZE38QzpoUWELA22gGZJve/Stretch-1?node-id=0%3A1&t=XZMPU63ACEm59OmF-0)
 
 ## Code Snippets:
 <img src="https://user-images.githubusercontent.com/107942776/205776203-2d17ff92-a536-4a73-82ff-970e11abbef0.png" width="500"/>
